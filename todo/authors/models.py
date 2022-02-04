@@ -8,14 +8,14 @@ class Authors(models.Model):
     birthday_year = models.PositiveIntegerField()
 
     def __str__(self):
-        return self.first_name
+        return f'{self.first_name} {self.last_name} {self.birthday_year}'
 
 class Biography(models.Model):
     text = models.TextField()
     author = models.OneToOneField(Authors, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return f'{self.author.first_name} {self.author.last_name}'
+    # def __str__(self):
+        # return f'{self.author.first_name} {self.author.last_name}'
 
 class Book(models.Model):
     name = models.CharField(max_length=64)
